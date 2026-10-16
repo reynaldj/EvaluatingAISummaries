@@ -1,0 +1,12 @@
+profile,n_annotated_summaries,pct_of_annotated_summaries,n_short,n_long,n_human_annotation_records,n_generation_models,mean_coherence,median_coherence,mean_factuality,median_factuality,mean_fluency,median_fluency,mean_coverage,median_coverage
+all_degraded,7,2.8807,5,2,9,2,2.6429,2.0000,1.5000,1.0000,3.2143,2.5000,1.9286,1.0000
+balanced_mid_quality,49,20.1646,41,8,66,3,3.9388,4.0000,4.0612,4.0000,4.4286,5.0000,3.8776,4.0000
+high_quality,65,26.7490,56,9,86,3,4.2462,5.0000,4.3692,5.0000,4.4692,5.0000,4.0846,4.5000
+low_coherence_low_fluency,9,3.7037,5,4,11,3,3.1111,3.0000,4.1111,5.0000,3.0000,3.5000,3.1667,4.0000
+low_coherence_low_relevance,12,4.9383,10,2,15,3,1.7500,1.7500,3.2500,4.0000,3.1667,3.5000,1.9167,2.0000
+low_factuality_low_coherence,13,5.3498,12,1,14,3,2.9615,3.0000,1.5000,1.0000,4.2308,4.0000,1.3462,1.0000
+low_factuality_low_fluency,13,5.3498,11,2,17,3,1.6538,1.5000,1.7308,1.5000,2.1923,1.5000,1.5385,1.0000
+low_factuality_low_relevance,22,9.0535,15,7,29,3,2.9091,3.0000,2.3182,2.0000,3.8636,4.0000,2.1136,1.7500
+low_factuality_low_relevance_low_coherence,21,8.6420,19,2,26,3,2.7857,3.0000,1.5238,1.0000,4.0476,4.0000,1.3810,1.0000
+low_fluency_low_relevance,18,7.4074,14,4,22,3,2.5833,3.0000,3.4167,3.5000,3.0556,3.2500,2.0278,2.0000
+low_relevance_low_coherence_low_fluency,14,5.7613,13,1,17,3,1.5000,1.0000,3.2143,3.0000,1.9286,1.7500,2.2143,2.0000

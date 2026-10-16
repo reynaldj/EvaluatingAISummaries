@@ -1,0 +1,43 @@
+# Python bytecode and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+annotation_analysis/.baseline_venv/
+
+# Local editor and machine state
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Credentials and local environment settings
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.tmp
+*.log
+~$*
+
+# Generated analysis products
+annotation_analysis/analysis_output/
+evaluation_analysis/output/
+
+# Local research inputs, model caches, and generated evaluator runs
+/summaries*/
+/short_summaries*/
+/long_summaries/
+/resources/
+/annotator_datasets/
+/main_annotation/Results/
+/main_annotation/Pilot_Annotation/
+/entailment_checkpoints/
+/coherence/coherence_geval_ablation_*/
+/fluency/fluency_evaluation_results_*/
+/relevance/*_results*/
+/seval-ex/results*/
+**/entailment_evaluation_results_*/
+**/nli_hybrid_evaluation_results_*/
+**/*.jsonl

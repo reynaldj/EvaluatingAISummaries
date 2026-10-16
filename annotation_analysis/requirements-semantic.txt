@@ -1,0 +1,2 @@
+-r requirements-fuzzy.txt
+sentence-transformers>=5.0,<6

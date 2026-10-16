@@ -1,0 +1,8 @@
+profile_category,n_profile_summaries,low_rating_threshold,n_rated_coherence,n_low_coherence,pct_low_coherence,n_rated_factuality,n_low_factuality,pct_low_factuality,n_rated_fluency,n_low_fluency,pct_low_fluency,n_rated_coverage,n_low_coverage,pct_low_coverage
+all_degraded,7,2.0000,7,4,57.1429,7,5,71.4286,7,3,42.8571,7,5,71.4286
+balanced_mid_quality,49,2.0000,49,4,8.1633,49,3,6.1224,49,3,6.1224,49,6,12.2449
+high_quality,65,2.0000,65,5,7.6923,65,4,6.1538,65,1,1.5385,65,9,13.8462
+low_coherence,69,2.0000,69,37,53.6232,69,40,57.9710,69,18,26.0870,69,54,78.2609
+low_coverage,87,2.0000,87,42,48.2759,87,43,49.4253,87,20,22.9885,87,63,72.4138
+low_factuality,69,2.0000,69,28,40.5797,69,51,73.9130,69,8,11.5942,69,57,82.6087
+low_fluency,54,2.0000,54,33,61.1111,54,19,35.1852,54,25,46.2963,54,35,64.8148

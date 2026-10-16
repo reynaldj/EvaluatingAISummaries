@@ -1,0 +1,2 @@
+dimension,method_variant,automatic_model,n_pairs,accuracy,metric_tie_rate,ci_95_low,ci_95_high
+factuality,default,meta-llama/Llama-3.1-8B-Instruct,213,0.5915492957746479,0.023474178403755867,0.507112286554585,0.6635071090047393

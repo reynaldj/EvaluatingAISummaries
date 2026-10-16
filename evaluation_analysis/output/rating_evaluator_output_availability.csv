@@ -1,0 +1,9 @@
+dimension,evaluator_model,file_exists,selected_prompt_rows,numeric_score_rows,status
+coherence,llama-3.1-8b,True,647,647,usable
+coherence,llama-70b,True,657,657,usable
+coherence,gemma-12b,True,657,657,usable
+coherence,gemma-31b,True,652,652,usable
+fluency,llama-3.1-8b,True,657,657,usable
+fluency,llama-70b,True,657,657,usable
+fluency,gemma-12b,True,657,657,usable
+fluency,gemma-31b,True,654,654,usable

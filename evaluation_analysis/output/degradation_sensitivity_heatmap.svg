@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1015" height="1133">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,sans-serif;font-size:29px}.title{font-size:32px;font-weight:bold}</style>
+<text x="10" y="40" class="title">Standardized score change when a degradation is present</text>
+<text x="10" y="88">Negative values (blue) indicate lower automatic scores.</text>
+<text x="298" y="140">factuality</text>
+<text x="473" y="140">coverage</text>
+<text x="648" y="140">coherence</text>
+<text x="823" y="140">fluency</text>
+<text x="8" y="177">coherence / gemma-12b</text>
+<rect x="290" y="150" width="172" height="55" fill="rgb(251,251,255)" stroke="#aaaaaa"/>
+<text x="338" y="177">-0.03</text>
+<rect x="465" y="150" width="172" height="55" fill="rgb(175,175,255)" stroke="#aaaaaa"/>
+<text x="513" y="177">-0.65</text>
+<rect x="640" y="150" width="172" height="55" fill="rgb(119,119,255)" stroke="#aaaaaa"/>
+<text x="688" y="177">-1.12</text>
+<rect x="815" y="150" width="172" height="55" fill="rgb(139,139,255)" stroke="#aaaaaa"/>
+<text x="863" y="177">-0.95</text>
+<text x="8" y="235">coherence / gemma-31b</text>
+<rect x="290" y="208" width="172" height="55" fill="rgb(226,226,255)" stroke="#aaaaaa"/>
+<text x="338" y="235">-0.23</text>
+<rect x="465" y="208" width="172" height="55" fill="rgb(180,180,255)" stroke="#aaaaaa"/>
+<text x="513" y="235">-0.61</text>
+<rect x="640" y="208" width="172" height="55" fill="rgb(133,133,255)" stroke="#aaaaaa"/>
+<text x="688" y="235">-1.00</text>
+<rect x="815" y="208" width="172" height="55" fill="rgb(144,144,255)" stroke="#aaaaaa"/>
+<text x="863" y="235">-0.91</text>
+<text x="8" y="293">coherence / llama-3.1-8b</text>
+<rect x="290" y="266" width="172" height="55" fill="rgb(255,243,243)" stroke="#aaaaaa"/>
+<text x="338" y="293">0.09</text>
+<rect x="465" y="266" width="172" height="55" fill="rgb(108,108,255)" stroke="#aaaaaa"/>
+<text x="513" y="293">-1.21</text>
+<rect x="640" y="266" width="172" height="55" fill="rgb(163,163,255)" stroke="#aaaaaa"/>
+<text x="688" y="293">-0.75</text>
+<rect x="815" y="266" width="172" height="55" fill="rgb(147,147,255)" stroke="#aaaaaa"/>
+<text x="863" y="293">-0.88</text>
+<text x="8" y="351">coherence / llama-70b</text>
+<rect x="290" y="324" width="172" height="55" fill="rgb(255,250,250)" stroke="#aaaaaa"/>
+<text x="338" y="351">0.04</text>
+<rect x="465" y="324" width="172" height="55" fill="rgb(117,117,255)" stroke="#aaaaaa"/>
+<text x="513" y="351">-1.13</text>
+<rect x="640" y="324" width="172" height="55" fill="rgb(147,147,255)" stroke="#aaaaaa"/>
+<text x="688" y="351">-0.88</text>
+<rect x="815" y="324" width="172" height="55" fill="rgb(171,171,255)" stroke="#aaaaaa"/>
+<text x="863" y="351">-0.69</text>
+<text x="8" y="409">coverage / gemma-12b</text>
+<rect x="290" y="382" width="172" height="55" fill="rgb(167,167,255)" stroke="#aaaaaa"/>
+<text x="338" y="409">-0.72</text>
+<rect x="465" y="382" width="172" height="55" fill="rgb(174,174,255)" stroke="#aaaaaa"/>
+<text x="513" y="409">-0.67</text>
+<rect x="640" y="382" width="172" height="55" fill="rgb(219,219,255)" stroke="#aaaaaa"/>
+<text x="688" y="409">-0.29</text>
+<rect x="815" y="382" width="172" height="55" fill="rgb(236,236,255)" stroke="#aaaaaa"/>
+<text x="863" y="409">-0.15</text>
+<text x="8" y="467">coverage / gemma-31b</text>
+<rect x="290" y="440" width="172" height="55" fill="rgb(165,165,255)" stroke="#aaaaaa"/>
+<text x="338" y="467">-0.73</text>
+<rect x="465" y="440" width="172" height="55" fill="rgb(165,165,255)" stroke="#aaaaaa"/>
+<text x="513" y="467">-0.73</text>
+<rect x="640" y="440" width="172" height="55" fill="rgb(215,215,255)" stroke="#aaaaaa"/>
+<text x="688" y="467">-0.32</text>
+<rect x="815" y="440" width="172" height="55" fill="rgb(224,224,255)" stroke="#aaaaaa"/>
+<text x="863" y="467">-0.25</text>
+<text x="8" y="525">coverage / llama-3.1-8b</text>
+<rect x="290" y="498" width="172" height="55" fill="rgb(196,196,255)" stroke="#aaaaaa"/>
+<text x="338" y="525">-0.48</text>
+<rect x="465" y="498" width="172" height="55" fill="rgb(178,178,255)" stroke="#aaaaaa"/>
+<text x="513" y="525">-0.63</text>
+<rect x="640" y="498" width="172" height="55" fill="rgb(223,223,255)" stroke="#aaaaaa"/>
+<text x="688" y="525">-0.26</text>
+<rect x="815" y="498" width="172" height="55" fill="rgb(225,225,255)" stroke="#aaaaaa"/>
+<text x="863" y="525">-0.24</text>
+<text x="8" y="583">coverage / llama-70b</text>
+<rect x="290" y="556" width="172" height="55" fill="rgb(199,199,255)" stroke="#aaaaaa"/>
+<text x="338" y="583">-0.45</text>
+<rect x="465" y="556" width="172" height="55" fill="rgb(176,176,255)" stroke="#aaaaaa"/>
+<text x="513" y="583">-0.65</text>
+<rect x="640" y="556" width="172" height="55" fill="rgb(224,224,255)" stroke="#aaaaaa"/>
+<text x="688" y="583">-0.25</text>
+<rect x="815" y="556" width="172" height="55" fill="rgb(234,234,255)" stroke="#aaaaaa"/>
+<text x="863" y="583">-0.17</text>
+<text x="8" y="641">factuality / gemma-12b</text>
+<rect x="290" y="614" width="172" height="55" fill="rgb(22,22,255)" stroke="#aaaaaa"/>
+<text x="338" y="641">-1.92</text>
+<rect x="465" y="614" width="172" height="55" fill="rgb(201,201,255)" stroke="#aaaaaa"/>
+<text x="513" y="641">-0.44</text>
+<rect x="640" y="614" width="172" height="55" fill="rgb(193,193,255)" stroke="#aaaaaa"/>
+<text x="688" y="641">-0.50</text>
+<rect x="815" y="614" width="172" height="55" fill="rgb(238,238,255)" stroke="#aaaaaa"/>
+<text x="863" y="641">-0.13</text>
+<text x="8" y="699">factuality / gemma-31b</text>
+<rect x="290" y="672" width="172" height="55" fill="rgb(5,5,255)" stroke="#aaaaaa"/>
+<text x="338" y="699">-2.06</text>
+<rect x="465" y="672" width="172" height="55" fill="rgb(205,205,255)" stroke="#aaaaaa"/>
+<text x="513" y="699">-0.41</text>
+<rect x="640" y="672" width="172" height="55" fill="rgb(195,195,255)" stroke="#aaaaaa"/>
+<text x="688" y="699">-0.49</text>
+<rect x="815" y="672" width="172" height="55" fill="rgb(227,227,255)" stroke="#aaaaaa"/>
+<text x="863" y="699">-0.23</text>
+<text x="8" y="757">factuality / llama-3.1-8b</text>
+<rect x="290" y="730" width="172" height="55" fill="rgb(77,77,255)" stroke="#aaaaaa"/>
+<text x="338" y="757">-1.46</text>
+<rect x="465" y="730" width="172" height="55" fill="rgb(175,175,255)" stroke="#aaaaaa"/>
+<text x="513" y="757">-0.66</text>
+<rect x="640" y="730" width="172" height="55" fill="rgb(189,189,255)" stroke="#aaaaaa"/>
+<text x="688" y="757">-0.54</text>
+<rect x="815" y="730" width="172" height="55" fill="rgb(227,227,255)" stroke="#aaaaaa"/>
+<text x="863" y="757">-0.22</text>
+<text x="8" y="815">factuality / llama-70b</text>
+<rect x="290" y="788" width="172" height="55" fill="rgb(0,0,255)" stroke="#aaaaaa"/>
+<text x="338" y="815">-2.10</text>
+<rect x="465" y="788" width="172" height="55" fill="rgb(216,216,255)" stroke="#aaaaaa"/>
+<text x="513" y="815">-0.32</text>
+<rect x="640" y="788" width="172" height="55" fill="rgb(194,194,255)" stroke="#aaaaaa"/>
+<text x="688" y="815">-0.50</text>
+<rect x="815" y="788" width="172" height="55" fill="rgb(237,237,255)" stroke="#aaaaaa"/>
+<text x="863" y="815">-0.14</text>
+<text x="8" y="873">fluency / gemma-12b</text>
+<rect x="290" y="846" width="172" height="55" fill="rgb(255,225,225)" stroke="#aaaaaa"/>
+<text x="338" y="873">0.25</text>
+<rect x="465" y="846" width="172" height="55" fill="rgb(209,209,255)" stroke="#aaaaaa"/>
+<text x="513" y="873">-0.37</text>
+<rect x="640" y="846" width="172" height="55" fill="rgb(194,194,255)" stroke="#aaaaaa"/>
+<text x="688" y="873">-0.50</text>
+<rect x="815" y="846" width="172" height="55" fill="rgb(60,60,255)" stroke="#aaaaaa"/>
+<text x="863" y="873">-1.60</text>
+<text x="8" y="931">fluency / gemma-31b</text>
+<rect x="290" y="904" width="172" height="55" fill="rgb(255,224,224)" stroke="#aaaaaa"/>
+<text x="338" y="931">0.25</text>
+<rect x="465" y="904" width="172" height="55" fill="rgb(220,220,255)" stroke="#aaaaaa"/>
+<text x="513" y="931">-0.29</text>
+<rect x="640" y="904" width="172" height="55" fill="rgb(191,191,255)" stroke="#aaaaaa"/>
+<text x="688" y="931">-0.52</text>
+<rect x="815" y="904" width="172" height="55" fill="rgb(86,86,255)" stroke="#aaaaaa"/>
+<text x="863" y="931">-1.39</text>
+<text x="8" y="989">fluency / llama-3.1-8b</text>
+<rect x="290" y="962" width="172" height="55" fill="rgb(255,230,230)" stroke="#aaaaaa"/>
+<text x="338" y="989">0.20</text>
+<rect x="465" y="962" width="172" height="55" fill="rgb(197,197,255)" stroke="#aaaaaa"/>
+<text x="513" y="989">-0.47</text>
+<rect x="640" y="962" width="172" height="55" fill="rgb(190,190,255)" stroke="#aaaaaa"/>
+<text x="688" y="989">-0.53</text>
+<rect x="815" y="962" width="172" height="55" fill="rgb(120,120,255)" stroke="#aaaaaa"/>
+<text x="863" y="989">-1.11</text>
+<text x="8" y="1047">fluency / llama-70b</text>
+<rect x="290" y="1020" width="172" height="55" fill="rgb(255,235,235)" stroke="#aaaaaa"/>
+<text x="338" y="1047">0.16</text>
+<rect x="465" y="1020" width="172" height="55" fill="rgb(219,219,255)" stroke="#aaaaaa"/>
+<text x="513" y="1047">-0.30</text>
+<rect x="640" y="1020" width="172" height="55" fill="rgb(209,209,255)" stroke="#aaaaaa"/>
+<text x="688" y="1047">-0.37</text>
+<rect x="815" y="1020" width="172" height="55" fill="rgb(96,96,255)" stroke="#aaaaaa"/>
+<text x="863" y="1047">-1.30</text>
+</svg>
