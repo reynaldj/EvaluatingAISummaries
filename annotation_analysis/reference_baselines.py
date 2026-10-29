@@ -22,7 +22,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from scipy.stats import kendalltau, spearmanr
+from scipy.stats import kendalltau, spearmanr, t as student_t
 
 from data_inventory import read_csv, transcript_payload, digest
 
@@ -281,6 +281,14 @@ def correlation_stats(frame, n_bootstrap, seed, paired=False):
         low, high = np.quantile(valid, [.025, .975]) if valid else (np.nan, np.nan)
         result[label+'_ci_low'], result[label+'_ci_high'] = low, high
         result[label+'_valid_bootstraps'] = len(valid)
+        cluster_se = np.std(valid, ddof=1) if len(valid) > 1 else np.nan
+        result[label+'_cluster_bootstrap_se'] = cluster_se
+        n_clusters = result['n_transcripts']
+        if np.isfinite(cluster_se) and cluster_se > 0 and n_clusters > 1 and np.isfinite(point[index]):
+            result[label+'_cluster_adjusted_p'] = float(
+                2 * student_t.sf(abs(point[index] / cluster_se), df=n_clusters - 1))
+        else:
+            result[label+'_cluster_adjusted_p'] = np.nan
     return result
 
 
@@ -326,14 +334,17 @@ def analyse(data, scores, root, out, n_bootstrap, seed):
         for subset, sample in [('all_scored', group), ('untruncated', group[~group.input_truncated])]:
             if sample.empty:
                 continue
-            rho, rho_p = spearmanr(sample.baseline_score, sample.human_score)
-            tau, tau_p = kendalltau(sample.baseline_score, sample.human_score, variant='b')
+            rho, rho_p_iid = spearmanr(sample.baseline_score, sample.human_score)
+            tau, tau_p_iid = kendalltau(sample.baseline_score, sample.human_score, variant='b')
+            cluster_stats = correlation_stats(sample, n_bootstrap, seed)
             validity.append({'dimension': dim, 'baseline': metric, 'subset': subset,
                 'n_unique_summaries': sample.uid.nunique(),
-                'spearman_rho': rho, 'spearman_p': rho_p,
-                'kendall_tau_b': tau, 'kendall_p': tau_p,
+                'spearman_rho': rho, 'spearman_p': cluster_stats['baseline_spearman_rho_cluster_adjusted_p'],
+                'spearman_p_iid': rho_p_iid,
+                'kendall_tau_b': tau, 'kendall_p': cluster_stats['baseline_kendall_tau_b_cluster_adjusted_p'],
+                'kendall_p_iid': tau_p_iid,
                 'n_truncated': int(sample.input_truncated.sum()),
-                **correlation_stats(sample, n_bootstrap, seed)})
+                **cluster_stats})
     validity = pd.DataFrame(validity)
     save_csv(validity, out/'baseline_metric_validity.csv')
     proposed, audit = load_proposed(root, data)
@@ -379,9 +390,11 @@ def render_report(out, data, audit, scores, validity, errors, args):
         f'UniEval uses the official right-truncation policy at {args.unieval_max_length} input tokens. '
         'BERTScore also has a model input limit. Lengths and truncation flags are saved per summary/dimension; '
         'both all_scored and untruncated sensitivity comparisons are reported. Truncation can omit source evidence.', '',
-        f'Confidence intervals use {args.bootstrap_samples} transcript-cluster bootstrap draws (seed {args.seed}). '
+        f'Confidence intervals and cluster-adjusted p-values use {args.bootstrap_samples} transcript-cluster bootstrap draws (seed {args.seed}). '
         'Paired correlation differences (proposed minus baseline) share identical resamples. '
-        'Intervals are descriptive and not adjusted for multiple comparisons. Constant/insufficient samples have undefined correlations.', '',
+        'P-values use two-sided Wald tests with the cluster-bootstrap standard error and a t reference distribution with '
+        'degrees of freedom equal to the number of transcripts minus one; IID Spearman/Kendall p-values are retained in '
+        'separate *_p_iid columns. P-values are not adjusted for multiple comparisons. Constant/insufficient samples have undefined correlations.', '',
         'Main file: paired_metric_comparisons.csv. Baseline-only correlations: baseline_metric_validity.csv. '
         'Inspect n_summaries and n_transcripts: different proposed methods may have different availability. '
         'Reference similarity scores are not direct factual-error detectors or span-localization metrics.', '']
@@ -413,6 +426,7 @@ def main():
     parser.add_argument('--metrics', nargs='+', choices=['rouge', 'bertscore', 'unieval'], default=['rouge', 'bertscore', 'unieval'])
     parser.add_argument('--prepare-only', action='store_true')
     parser.add_argument('--score-only', action='store_true', help='Score/cache without bootstrap comparisons.')
+    parser.add_argument('--analysis-only', action='store_true', help='Recompute comparisons from saved baseline_dataset.csv and baseline_scores.csv.')
     parser.add_argument('--device', default='auto')
     parser.add_argument('--batch-size', type=int, default=4)
     parser.add_argument('--torch-threads', type=int, default=4)
@@ -427,6 +441,21 @@ def main():
         parser.error('Batch size, threads and max length must be positive; bootstrap count cannot be negative.')
     out = args.output_dir or args.root/'annotation_analysis/analysis_output/reference_baselines'
     out.mkdir(parents=True, exist_ok=True)
+    if args.analysis_only:
+        data = pd.read_csv(out/'baseline_dataset.csv', low_memory=False)
+        scores = pd.read_csv(out/'baseline_scores.csv', low_memory=False)
+        audit = pd.read_csv(out/'reference_match_audit.csv', low_memory=False)
+        config_path = out/'run_config.json'
+        config = json.loads(config_path.read_text(encoding='utf-8')) if config_path.exists() else {}
+        errors = config.get('errors', {})
+        validity, _ = analyse(data, scores, args.root, out, args.bootstrap_samples, args.seed)
+        render_report(out, data, audit, scores, validity, errors, args)
+        config['analysis'] = {'bootstrap_samples': args.bootstrap_samples, 'seed': args.seed,
+            'cluster_unit': 'transcript', 'p_value_method': 'two-sided Wald t test using cluster-bootstrap SE; df=n_transcripts-1'}
+        config['script_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+        write_json(config_path, config)
+        print(f'Recomputed cluster-adjusted results from saved scores in {out}', flush=True)
+        return
     data = build_dataset(args.root)
     audit = data.drop(columns=['transcript', 'reference', 'summary_text'])
     save_csv(audit, out/'reference_match_audit.csv')

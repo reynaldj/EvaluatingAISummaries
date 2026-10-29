@@ -36,12 +36,13 @@ variable name. Never commit a real key.
 
 ## Data and results
 
-Large input corpora, annotation exports, evaluator run files, model checkpoints,
-and generated per-summary text are kept out of Git. Supply the local inputs
-described in the analysis READMEs before rerunning those pipelines.
+Large input corpora, annotation exports, model checkpoints, and full generated
+transcripts/summaries are kept out of Git. Supply the local inputs described in
+the analysis READMEs before rerunning model-generation or annotation pipelines.
 
-Selected results are included: aggregate human and automatic analysis tables,
-the regenerated human-analysis PNG/SVG figures, and evaluator-analysis outputs.
-Row-level exports containing transcripts, summaries, annotation text, or
-extracted evidence are excluded. The generated figures and aggregate tables are
-ready to inspect without rerunning model inference.
+The repository includes the selected per-summary evaluator result files used by
+the current automatic analysis for factuality, coverage, coherence, and fluency,
+along with the aggregate analysis tables and figures. It excludes exploratory
+and pilot runs, caches, and raw annotation exports. The selected evaluator
+results are already-produced model outputs; reproducing inference still requires
+the relevant model access and source data.

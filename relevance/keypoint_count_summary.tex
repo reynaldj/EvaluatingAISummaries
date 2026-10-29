@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\caption{Mean number of extracted keypoints per transcript by model, method, and transcript length.}
+\label{tab:keypoint_count_by_model_method_length}
+\begin{tabular}{llrr}
+\toprule
+Model & Method & Short mean & Long mean \\
+\midrule
+Gemma 12B & Narrow & 4.88 & 7.02 \\
+Gemma 12B & Wide & 7.51 & 28.70 \\
+Gemma 31B & Narrow & 4.04 & 7.49 \\
+Gemma 31B & Wide & 4.68 & 16.54 \\
+Llama 3.1 8B & Narrow & 5.40 & 7.77 \\
+Llama 3.1 8B & Wide & 8.83 & 14.25 \\
+Llama 70B & Narrow & 5.68 & 7.84 \\
+Llama 70B & Wide & 9.17 & 24.14 \\
+Statistical & Statistical & 3.07 & 10.96 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+{\footnotesize Means are computed over saved keypoint sets. The short-transcript output for Llama 70B wide is incomplete. Statistical extraction is model-independent.\par}
+\end{table}

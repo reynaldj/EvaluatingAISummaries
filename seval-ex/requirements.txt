@@ -1,0 +1,18 @@
+# Core dependencies
+ollama>=0.1.17
+datasets>=2.14.0
+tqdm>=4.65.0
+numpy>=1.24.0
+
+# Optional dependencies for visualization and analysis
+matplotlib>=3.7.0
+termcolor>=2.3.0
+pyfiglet>=0.8.0
+scipy>=1.10.0
+
+# For statistical analysis in hallucination evaluation
+scikit-learn>=1.2.0
+
+# For parsing and data handling
+pandas>=2.0.0
+json5>=0.9.14

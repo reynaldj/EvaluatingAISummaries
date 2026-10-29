@@ -134,24 +134,25 @@ annotations and automatic evaluator results are never modified.
 | `rating_iaa.csv` | ordinal Krippendorff alpha, exact/adjacent agreement |
 | `human_scores_aggregated.csv` | one row per transcript and AI summary |
 | `human_descriptives.csv` | human scores by source and generation model |
-| `metric_validity.csv` | correlations, cluster-bootstrap CI, MAE, and bias |
+| `metric_validity.csv` | correlations, transcript-cluster-bootstrap CIs and Wald p-values, MAE, and bias; IID p-values are retained for reference |
 | `pairwise_metric_agreement.csv` | automatic metric agreement with consensus preference |
 | `span_keypoint_alignment_summary.csv` | direct error-span/keypoint comparison summary |
 | `pairwise_logit_consensus_results.csv` | odds ratios for drivers of human preference |
 
-## Current default automatic configuration
+## Automatic evaluator inputs
 
-- Factuality: `seval-ex/results-factuality-evaluation-llama8b/`
-  (`precision`, with FP statements retained for span comparison).
-- Coverage: `relevance/llama-3.1-8b/entailment_evaluation_results_llama3.1-8b-instruct_log_reconsider_narrow_keypoints/`
-  (`completeness`, with `key_items` retained for alignment).
-- Coherence: Llama-3.1-8B detailed coherence CSV.
-- Fluency: Llama-3.1-8B detailed fluency CSV.
+`automatic_analysis.py` discovers the selected factuality, coverage,
+coherence, and fluency result files in `seval-ex/`, `relevance/`, `coherence/`,
+and `fluency/`. It groups the results by evaluator model; coherence and fluency
+are also grouped by prompting strategy, and coverage by keypoint-extraction
+strategy. Coherence and fluency use the detailed JSONL files when available so
+the generating-model metadata is retained for matching to human scores.
 
-The current selected coherence file has no numeric `expected_rating` values,
-so coherence is intentionally absent from `metric_validity.csv` until a
-completed numeric coherence output is supplied. The script will include it
-automatically once the CSV contains numeric values.
+The repository includes the per-summary result files consumed by this analysis,
+as well as the aggregate tables. The raw input corpora, human annotation exports,
+and generated summaries are not included. To regenerate the tables, provide the
+human-analysis input described above and run the evaluator analysis from the
+repository root. Model inference is not run by `automatic_analysis.py`.
 
 For publication-quality results, manually audit the rows marked `match=True`
 and uncertain/non-matching rows in `span_keypoint_alignment_details.csv`.

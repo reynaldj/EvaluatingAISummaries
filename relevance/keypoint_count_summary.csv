@@ -1,0 +1,10 @@
+model,method,mean_keypoints_short,mean_keypoints_long
+Gemma 12B,narrow,4.88,7.02
+Gemma 12B,wide,7.51,28.70
+Gemma 31B,narrow,4.04,7.49
+Gemma 31B,wide,4.68,16.54
+Llama 3.1 8B,narrow,5.40,7.77
+Llama 3.1 8B,wide,8.83,14.25
+Llama 70B,narrow,5.68,7.84
+Llama 70B,wide,9.17,24.14
+Statistical,statistical,3.07,10.96
